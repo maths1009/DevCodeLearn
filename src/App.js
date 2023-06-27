@@ -1,23 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.css";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { homeRoute, loginRoute, registerRoute } from "./utils/rootHTML";
+
+import Home from "./screens/Home";
+import Login from "./screens/Login";
+import Register from "./screens/Register";
+
+import NavigationBar from "./components/NavigationBar/indes";
 
 function App() {
+  const isLoggin = localStorage.getItem("token");
+
+  const homeElement = <Home />;
+  const loginElement = <Login />;
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: homeElement,
+    },
+    {
+      path: homeRoute,
+      element: homeElement,
+    },
+    {
+      path: "*",
+      element: homeElement,
+    },
+  ]);
+
+  const unloggedRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: loginElement,
+    },
+    {
+      path: loginRoute,
+      element: loginElement,
+    },
+    {
+      path: registerRoute,
+      element: <Register />,
+    },
+    {
+      path: "*",
+      element: loginElement,
+    },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="containerApp">
+        <RouterProvider router={isLoggin ? router : unloggedRouter} />
+      </div>
+      {isLoggin && <NavigationBar />}
     </div>
   );
 }
