@@ -1,0 +1,115 @@
+.coursesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  color: $penn-blue;
+  padding: 0 1.5rem;
+  header {
+    padding: 5rem 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
+  .containerSearchBar {
+    padding: 1.5rem 2.5rem;
+    background-color: #f4f3fd;
+    width: 100%;
+    position: relative;
+    border-radius: 1rem;
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    img:first-child {
+      left: 1rem;
+    }
+    img:last-child {
+      right: 1rem;
+    }
+    input {
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: #b8b8d2;
+      }
+    }
+  }
+
+  .containerCourses {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .containerTag {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      color: #858597;
+      & * {
+        padding: 0.5rem 1rem;
+      }
+      .active {
+        color: $white;
+        background-color: $penn-blue;
+        border-radius: 1rem;
+      }
+    }
+    .containerCoursesList {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      overflow: auto;
+      height: 30rem;
+      .courseContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        .img {
+          background-color: #c4c4c4;
+          width: 4.25rem;
+          height: 4.5rem;
+          position: relative;
+          border-radius: 0.5rem;
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          .pourcentTime {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: center;
+            span:first-child {
+              font-weight: 700;
+            }
+            span:last-child {
+              background-color: #34a85370;
+              border-radius: 1rem;
+              padding: 0.25rem 0.5rem;
+              color: $penn-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}

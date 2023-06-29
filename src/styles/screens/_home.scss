@@ -1,0 +1,121 @@
+.homeContainer {
+  background-color: $penn-blue;
+  height: 100%;
+  header {
+    padding: 5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+  .containerLearn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: $white;
+    padding: 0 1.5rem;
+    height: 100%;
+    .learnToday {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        & p:nth-child(1) {
+          color: $gray;
+        }
+        & p:nth-child(2) {
+          color: $coquelicot;
+        }
+      }
+      .containerTimeLearn {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        p {
+          color: $gray;
+          span {
+            color: $penn-blue;
+            font-size: 2rem;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    .containerCourses {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      h2 {
+        color: $penn-blue;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      .courses {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .course {
+          display: flex;
+          justify-content: space-between;
+          .titleCourse {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            color: $penn-blue;
+          }
+          .scoreCourse {
+            p {
+              color: $gray;
+              span {
+                color: $penn-blue;
+              }
+            }
+          }
+        }
+      }
+      .showMore {
+        width: 100%;
+        text-align: center;
+        color: $penn-blue;
+      }
+    }
+
+    .lifeContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h2 {
+        color: $penn-blue;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .life {
+        display: flex;
+        p {
+          font-size: 3rem;
+        }
+        & p:first-child {
+          color: $pigment-green;
+        }
+        & p:first-child,
+        & p:last-child {
+          font-weight: 800;
+        }
+        & *:not(:first-child) {
+          color: $penn-blue;
+        }
+      }
+    }
+  }
+}
