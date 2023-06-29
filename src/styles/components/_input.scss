@@ -1,0 +1,33 @@
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  label {
+    color: $gray;
+  }
+  .input {
+    border: 1px solid $gray;
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    width: 100%;
+    &.error {
+      border: 1px solid $coquelicot;
+    }
+    input {
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      &::placeholder {
+        color: $gray;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .lockPassword {
+    position: absolute;
+    right: 1.25rem;
+  }
+}

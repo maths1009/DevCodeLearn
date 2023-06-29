@@ -1,0 +1,26 @@
+.button {
+  background-color: $penn-blue;
+  border: 1px solid $penn-blue;
+  color: $white;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  font-weight: 500;
+  &:hover,
+  &:focus {
+    border: 1px solid $penn-blue;
+    background-color: transparent;
+    color: $penn-blue;
+  }
+  &.error {
+    background-color: $coquelicot;
+    border: 1px solid $coquelicot;
+    &:hover,
+    &:focus {
+      border: 1px solid $coquelicot;
+      background-color: transparent;
+      color: $coquelicot;
+    }
+  }
+}

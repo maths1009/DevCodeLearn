@@ -1,21 +1,35 @@
+import React, { useState } from "react";
+
 import "./styles/App.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { homeRoute, loginRoute, registerRoute } from "./utils/rootHTML";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  courseRoute,
+  homeRoute,
+  loginRoute,
+  registerRoute,
+} from "./utils/rootHTML";
 
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
+import Courses from "./screens/Courses";
 
-import NavigationBar from "./components/NavigationBar/indes";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
-  const isLoggin = localStorage.getItem("token");
+  const [isLoggin, setIsLoggin] = useState(localStorage.getItem("token"));
 
   const homeElement = <Home />;
-  const loginElement = <Login />;
+  const loginElement = (
+    <Login
+      onLogin={() => {
+        setIsLoggin(true);
+      }}
+    />
+  );
 
-  const router = createBrowserRouter([
+  const router = [
     {
       path: "/",
       element: homeElement,
@@ -28,9 +42,13 @@ function App() {
       path: "*",
       element: homeElement,
     },
-  ]);
+    {
+      path: courseRoute,
+      element: <Courses />,
+    },
+  ];
 
-  const unloggedRouter = createBrowserRouter([
+  const unloggedRouter = [
     {
       path: "/",
       element: loginElement,
@@ -47,14 +65,34 @@ function App() {
       path: "*",
       element: loginElement,
     },
-  ]);
+  ];
 
   return (
     <div className="App">
       <div className="containerApp">
-        <RouterProvider router={isLoggin ? router : unloggedRouter} />
+        <BrowserRouter>
+          {isLoggin ? (
+            <>
+              <NavigationBar />
+              <Routes>
+                {router.map((route, index) => (
+                  <Route
+                    key={index}
+                    path={route.path}
+                    element={route.element}
+                  />
+                ))}
+              </Routes>
+            </>
+          ) : (
+            <Routes>
+              {unloggedRouter.map((route, index) => (
+                <Route key={index} path={route.path} element={route.element} />
+              ))}
+            </Routes>
+          )}
+        </BrowserRouter>
       </div>
-      {isLoggin && <NavigationBar />}
     </div>
   );
 }

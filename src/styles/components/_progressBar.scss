@@ -1,0 +1,13 @@
+.outer {
+  display: flex;
+  align-items: center;
+  height: 6px;
+  width: 100%;
+  background: $seasalt;
+  .inner {
+    height: 100%;
+    width: 0%;
+    background: $pigment-green;
+    transition: width 100ms ease-out;
+  }
+}
