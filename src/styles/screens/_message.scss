@@ -1,0 +1,107 @@
+.coursesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .titleChoice {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 1rem;
+    p {
+      color: $penn-blue;
+      position: relative;
+      font-weight: 500;
+      &.active::before {
+        content: "";
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        width: 35%;
+        height: 0.125rem;
+        transform: translateX(-50%);
+        background-color: $penn-blue;
+      }
+      &.hasNewMessage::after {
+        content: "";
+        position: absolute;
+        top: -0.3rem;
+        right: -0.6rem;
+        width: 0.37rem;
+        height: 0.37rem;
+        border-radius: 50%;
+        background-color: $coquelicot;
+      }
+    }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    height: 65%;
+    p {
+      color: #858597;
+      font-size: 0.75rem;
+    }
+    .notification {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      .headerNotifications {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .avatarTitle {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          .avatar {
+            width: 3rem;
+            height: 3rem;
+            background-color: #d8ffef;
+            border-radius: 0.8rem;
+          }
+          .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .name {
+              font-weight: 700;
+              color: $penn-blue;
+            }
+            .status {
+              font-weight: 700;
+              &.online {
+                color: $pigment-green;
+              }
+            }
+          }
+        }
+      }
+    }
+    .containerMessage {
+      display: flex;
+      gap: 1rem;
+      .icone {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eaeaff;
+        border-radius: 0.8rem;
+      }
+      .titleMessage {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .name {
+          color: $penn-blue;
+        }
+        .timeMessage {
+          display: flex;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+}

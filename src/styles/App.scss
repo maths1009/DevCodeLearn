@@ -6,11 +6,13 @@
 @import "components/progressBar";
 @import "components/block";
 @import "components/navigationBar";
+@import "components/header";
 
 /* SCREENS */
 @import "screens/login";
 @import "screens/home";
 @import "screens/courses";
+@import "screens/message";
 
 @import "../../node_modules/normalize-scss/sass/normalize";
 

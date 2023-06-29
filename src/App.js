@@ -7,6 +7,7 @@ import {
   courseRoute,
   homeRoute,
   loginRoute,
+  messageRoute,
   registerRoute,
 } from "./utils/rootHTML";
 
@@ -16,6 +17,7 @@ import Register from "./screens/Register";
 import Courses from "./screens/Courses";
 
 import NavigationBar from "./components/NavigationBar";
+import Message from "./screens/Message";
 
 function App() {
   const [isLoggin, setIsLoggin] = useState(localStorage.getItem("token"));
@@ -45,6 +47,10 @@ function App() {
     {
       path: courseRoute,
       element: <Courses />,
+    },
+    {
+      path: messageRoute,
+      element: <Message />,
     },
   ];
 

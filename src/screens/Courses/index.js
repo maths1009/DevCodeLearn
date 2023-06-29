@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import Block from "../../components/Block";
+
 import { validUser } from "../../__mocks__/login";
 import { getPourcent } from "../../utils/snippets";
+
+import Block from "../../components/Block";
+import Header from "../../components/Header";
 
 export default function Courses() {
   const [typeSearch, setTypeSearch] = useState("all");
@@ -19,12 +22,7 @@ export default function Courses() {
 
   return (
     <div className="coursesContainer">
-      <header>
-        <div className="title">
-          <h2>Cours</h2>
-        </div>
-        <img src={`/img/avatar/${avatar}`} alt="avatar" />
-      </header>
+      <Header avatar={avatar} titlePage="Cours" />
       <div className="containerSearchBar">
         <img src="/img/icone/search.png" alt="search" />
         <input type="text" placeholder="Trouvez votre cours" />
